@@ -7,4 +7,7 @@ class ClientError extends Error {
 	}
 }
 
+// class AuthClientError extends Error {
+
+// }
 module.exports = ClientError

@@ -3,7 +3,7 @@ const { ClientError } = require("../utils");
 const data = [
 	{
 		id: 1,
-		title: "The Shawshank Redemption",
+		title: "titanis",
 	},
 	{
 		id: 2,
@@ -25,11 +25,17 @@ const getMovieById = async (id) => {
 	/*del primer elemento del array que cumple */
 	/*la función de prueba proporcionada.*/
 	const movie = data.find((e) => e.id == id);
-	if (!movie) throw new ClientError("invalid id");
+	if (!movie) throw new ClientError("invalid id", 404);
 	return movie
+}
+
+const getMoviesByName = async (name) => {
+	const movies = data.filter((e) => e.title == name);
+	return movies;
 }
 
 module.exports = {
 	getAllMovies,
-	getMovieById
+	getMovieById,
+	getMoviesByName
 }

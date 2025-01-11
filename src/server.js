@@ -11,6 +11,9 @@ server.use(express.json());
 server.use(require("./routes"));
 
 server.use((err, req, res, next) => {
-	res
+	const { statusCode, message } = err;
+	resError(res, statusCode, message);
 });
+
+
 module.exports = server;
